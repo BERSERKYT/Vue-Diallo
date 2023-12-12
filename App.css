@@ -1,0 +1,161 @@
+/* seulement un reset css */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;600&family=Roboto:wght@300;500&display=swap');
+:root{
+    --primary: #016A70; /*c'est comme ca ont declare variable en css*/
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    background: #F5F5F5;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Roboto', sans-serif;
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    text-transform: lowercase;
+  }
+  p, h1, h2, h3, h4, h5, h6::first-letter{
+    text-transform: uppercase;
+  }
+  /*
+    8. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+  /* le reset fini ici */
+
+
+  /* le conteneur  */
+
+  .container{
+    padding: .820rem 1.5rem;  /* haut et bas - gauche droite  */
+    max-width: 1200px;
+    margin-inline: auto;  /* pour centrer sur l'horizontal seulement*/
+    background: #fff;
+    margin-block-start: 30px; /*pour le decoller du haut, tu peux aussi ecrire margin top si tu veux*/
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .headerTitle {
+    background: var(--primary); /* ma varibale declarer en haut contient le code couleur*/
+    color: #fff;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    padding: .2rem 0;
+  }
+
+
+  /* layout-grid */
+  .grid-layout{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: .8rem;
+  }
+
+  .grid-item{
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .3);
+    border: .5px solid rgba(51, 51, 51, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    gap: 1.5rem;
+  }
+
+
+  /* les el dans le grid items */
+
+  .grid-item .header{
+    background: var(--primary);
+    text-align: center;
+    font-size: .7rem;
+    color: #fff;
+    padding: .3rem 0;
+  }
+
+  /* main */
+
+  .grid-item .main{
+    align-self: center;
+    font-size: 2.5rem;
+    color: var(--primary);
+  }
+
+  .grid-item .footer{
+    align-self: center;
+    padding: .3rem;
+  }
+
+
+
+  /* grid deux */
+
+  .grid-layout-deux{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 1.4rem .4rem;
+    margin-inline: auto;
+  }
+
+  .grid-layout-deux .grid-item{
+    min-height: 270px;
+  }
+
+
+  /* leger responsive j'ai pousser les truc loin */
+  @media screen and (max-width: 385px) {
+    .container{
+      width: 100%;
+      padding: .5rem;
+    }
+
+    .grid-layout-deux{
+      grid-template-columns: 1fr;
+    }
+    .grid-layout-deux .grid-item{
+      width: 100%;
+    }
+
+  }
